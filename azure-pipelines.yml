@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: selfwindowsagent
+  name: selfLinuxagent
   demands:
    - agent.name -equals myLinuxVM
   
