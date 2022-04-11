@@ -6,7 +6,7 @@
 		"adminUsername": {
 			"type": "string",
 			"metadata": {
-				"description": "Username for the Virtual Machine. Default value is localadmin"
+				"description": "Username  for the linux Virtual Machine. Default value is localadmin"
 			},
 			"defaultValue": "india"
 		},
