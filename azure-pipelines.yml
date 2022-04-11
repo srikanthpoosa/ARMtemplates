@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: selfwindowsagent
+  demands:
+   - agent.name -equals myLinuxVM
+  
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Free Trial(1)(18805a60-8681-406f-9ca0-5103eeba357a)'
+    subscriptionId: '18805a60-8681-406f-9ca0-5103eeba357a'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'VMResourcegroup'
+    location: 'South India'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/srikanthpoosa/ARMtemplates/main/azurevmdeploy.json'
+    deploymentMode: 'Incremental'
